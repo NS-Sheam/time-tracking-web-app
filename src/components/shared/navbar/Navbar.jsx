@@ -16,7 +16,7 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
     const commonClasses = 'text-2xl icon';
 
     return (
-        <div className={`h-screen bg-gray-800 text-white ${drawerOpen ? 'w-64' : 'w-16'} transition-all duration-300 py-2`}>
+        <div className={`fixed h-screen bg-gray-800 text-white ${drawerOpen ? 'w-64' : 'w-16'} transition-all duration-300 py-2`}>
             <div className="">
                 <div className="cursor-pointer p-4 icon" onClick={toggleDrawer}>
                     {
