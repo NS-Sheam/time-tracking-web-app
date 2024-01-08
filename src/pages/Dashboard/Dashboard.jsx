@@ -3,6 +3,8 @@
 import ThreeDProjectCard from '../../components/shared/3DComponents/3DProjectcard';
 import ThreeDTimer from '../../components/shared/3DComponents/3DTimer';
 import { LiveCounter } from './LiveCounter';
+import Chart from './Chart';
+
 
 const Dashboard = () => {
     return (
@@ -18,6 +20,12 @@ const Dashboard = () => {
             </div>
             <div className="mt-8">
                 <ThreeDTimer taskName="Task 1" />
+            </div>
+            <div className="mt-8">
+                <h2 className="text-xl font-bold mb-4">Project Status</h2>
+                <div className="w-full md:w-3/4 lg:w-1/2 mx-auto">
+                    <Chart />
+                </div>
             </div>
         </div>
     );
