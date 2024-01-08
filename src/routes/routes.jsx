@@ -18,7 +18,7 @@ const routes = createBrowserRouter([
     children: [
       { path: "/", element: <Dashboard /> },
       { path: "/projects", element: <ProjectList /> },
-      { path: "/projects/:projectId", element: <ProjectDetails /> },
+      // { path: "/projects/:projectId", element: <ProjectDetails /> },
       { path: "/time-tracking", element: <TimerView /> },
       { path: "/settings", element: <Settings /> },
       { path: "/integrations", element: <Integrations /> },
