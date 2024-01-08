@@ -26,7 +26,7 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
             </div>
             <div className=" flex flex-col overflow-hidden">
                 {menuItems.map((item, index) => (
-                    <Link to={item.path} key={index} className="flex items-center p-4 hover:bg-slate-600 transition-all duration-300">
+                    <Link to={item.path} key={index} className="flex items-center p-4 hover:bg-slate-600 transition-all duration-300 font-bold text-xl">
                         <div className="flex-shrink-0 icon-container">
                             {item.icon}
                         </div>
