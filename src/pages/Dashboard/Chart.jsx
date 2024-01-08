@@ -12,7 +12,7 @@ const Chart = () => {
             },
         ],
     };
-    return <Doughnut data={doughnutChartData} />
+    return <Doughnut data={doughnutChartData} className="w-full" style={{ height: '400px' }} />
 };
 
 export default Chart;
