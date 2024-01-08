@@ -1,15 +1,8 @@
-import { useState } from 'react';
+import React from 'react';
 import { FaBars, FaHome, FaTasks, FaCog, FaChartBar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // External CSS for additional styling
 
-const Navbar = () => {
-    const [drawerOpen, setDrawerOpen] = useState(false);
-
-    const toggleDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    };
-
+const Navbar = ({ drawerOpen, toggleDrawer }) => {
     const menuItems = [
         { icon: <FaHome />, text: 'Dashboard', path: '/' },
         { icon: <FaTasks />, text: 'Projects', path: '/projects' },
