@@ -10,11 +10,11 @@ const MainLayout = () => {
     };
 
     return (
-        <div className="container mx-auto grid grid-cols-5 gap-4">
-            <div className={`col-span-1 ${drawerOpen ? 'w-64' : 'absolute w-16 top-0 left-0'} transition-all duration-300`}>
+        <div className="container mx-auto flex float-start justify-start gap-4">
+            <div className={`${drawerOpen ? 'w-64' : 'absolute w-16 top-0 left-0'} transition-all duration-300 z-10`}>
                 <Navbar drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} />
             </div>
-            <div className={`${!drawerOpen && "ml-20"} col-span-4`}>
+            <div className={`${!drawerOpen && "ml-20"} w-full`}>
                 <Outlet />
             </div>
         </div>
