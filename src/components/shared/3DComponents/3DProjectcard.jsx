@@ -1,5 +1,15 @@
 
-const ThreeDProjectCard = ({ projectName, description, status, totalTime }) => {
+const ThreeDProjectCard = () => {
+
+    const dummyData = {
+        projectName: 'Sample Project',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        status: 'In Progress',
+        totalTime: '5',
+    };
+
+    const { projectName, description, status, totalTime } = dummyData;
+
     return (
         <div className="bg-white p-6 rounded-md shadow-lg transform hover:scale-105 transition-transform duration-300">
             <h3 className="text-xl font-bold mb-2 text-gray-800">{projectName}</h3>
