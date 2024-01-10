@@ -25,9 +25,9 @@ const Dashboard = () => {
                         <ThreeDTimer taskName="Task 1" />
                     </div>
                 </div>
-                <div className="">
-                    <h2 className="text-xl font-bold mb-4">Project Status</h2>
-                    <div className="">
+                <div className="shadow-inner shadow-black">
+                    <h2 className="text-2xl font-bold mb-4 text-white text-center">Project Status</h2>
+                    <div className="-mt-8">
                         <Chart />
                     </div>
                 </div>
