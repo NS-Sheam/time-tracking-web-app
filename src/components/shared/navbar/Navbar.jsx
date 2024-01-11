@@ -10,6 +10,7 @@ import settingLogo from "../../../assets/icons/setting.png"
 import './Navbar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTitle } from '../../../redux/features/headerSlice';
+import ActiveLink from '../../ActiveLink';
 
 const Navbar = ({ drawerOpen, toggleDrawer }) => {
     const dispatch = useDispatch();
@@ -28,14 +29,14 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
 
     return (
         <div className={`fixed h-screen  text-white w-64 transition-all duration-300 py-2`}>
-            <div className=" flex flex-col overflow-hidden p-2">
+            <div className=" flex flex-col overflow-hidden p-2 gap-2">
                 {menuItems.map((item, index) => (
-                    <Link
+                    <ActiveLink
                         onClick={() => dispatch(setTitle(item.text))}
-                        to={item.path} key={index} className="menu-item flex items-center p-4 gap-4 text-black hover:bg-black hover:text-white transition-all duration-300 font-semibold rounded-md">
+                        to={item.path} key={index} className="">
                         <img src={item.icon} alt="" className={`${item.text !== "Dashboard" ? "nav-logo" : "dashboard-logo"}`} />
                         <p>{item.text}</p>
-                    </Link>
+                    </ActiveLink>
                 ))}
             </div>
         </div>

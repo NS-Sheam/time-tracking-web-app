@@ -1,7 +1,7 @@
 .menu-item:hover .nav-logo {
   filter: invert(100%);
 }
-.dashboard-logo {
+.dashboard-logo .active {
   filter: invert(100%);
 }
 .menu-item:hover .dashboard-logo {
