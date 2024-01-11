@@ -69,7 +69,7 @@ const Dashboard = () => {
                 }
             </div>
             {/* Recent Activity and Project Section  */}
-            <div className="">
+            <div className="grid grid-cols-2 gap-3">
                 {/* Recent Activity Section  */}
                 <div className={commonBoxClass}>
                     <div className="flex items-center justify-between gap-2">
@@ -98,6 +98,22 @@ const Dashboard = () => {
                             }
                         </div>
                     </div>
+                </div>
+                {/* Project Section  */}
+                <div className={commonBoxClass}>
+                    <div className="flex items-center justify-between gap-2">
+                        <h4 className="font-semibold text-xl">Projects</h4>
+                        <p><FaEllipsisV /></p>
+                    </div>
+                    <div className="flex justify-between items-center gap-2 text-black">
+                        <div className="flex items-center justify-center gap-3">
+                            <p className="p-2 bg-yellow-100 rounded-full text-white"><FaUser /></p>
+                            <p className="font-bold">Project 1</p>
+                        </div>
+                        <button className="bg-yellow-200 p-2 rounded-md font-semibold">View all</button>
+                        div
+                    </div>
+
                 </div>
             </div>
         </div>
