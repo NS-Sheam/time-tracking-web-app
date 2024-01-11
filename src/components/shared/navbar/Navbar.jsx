@@ -32,8 +32,7 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
             <div className=" flex flex-col overflow-hidden p-2 gap-2">
                 {menuItems.map((item, index) => (
                     <ActiveLink
-                        onClick={() => dispatch(setTitle(item.text))}
-                        to={item.path} key={index} className="">
+                        to={item.path} key={index} title={item.text}>
                         <img src={item.icon} alt="" className={`${item.text !== "Dashboard" ? "nav-logo" : "dashboard-logo"}`} />
                         <p>{item.text}</p>
                     </ActiveLink>

@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 const TopHeader = () => {
     const { title } = useSelector(state => state.header)
+    console.log(title);
+
     return (
         <div className="grid grid-cols-4 items-center">
             <div className="col-span-1 me-auto">

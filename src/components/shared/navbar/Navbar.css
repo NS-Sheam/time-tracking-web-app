@@ -1,9 +1,11 @@
-.menu-item:hover .nav-logo {
+.menu-item:hover .nav-logo,
+.menu-item.active .nav-logo {
   filter: invert(100%);
 }
-.dashboard-logo .active {
+
+.pending .dashboard-logo {
   filter: invert(100%);
 }
-.menu-item:hover .dashboard-logo {
+/* .menu-item:hover .dashboard-logo {
   filter: invert(0);
-}
+} */
