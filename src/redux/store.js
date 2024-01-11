@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import headerReducer from "./features/headerSlice";
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    header: headerReducer,
+  },
 });
 
 export default store;

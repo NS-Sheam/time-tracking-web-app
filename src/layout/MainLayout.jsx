@@ -1,9 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/navbar/Navbar";
 import { createContext, useState } from "react";
+import { FaBars, FaBell, FaSearch, FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
 export const DataContext = createContext(null);
 
 const MainLayout = () => {
+    const { title } = useSelector(state => state.header)
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const [projects, setProjects] = useState([
@@ -67,11 +70,12 @@ const MainLayout = () => {
     };
 
     return (
-        <div className="container mx-auto flex justify-start gap-4 relative" style={{ background: 'linear-gradient(to right, #4A00E0, #8E2DE2)' }}>
-            <div className={`${drawerOpen ? 'w-64 mr-12' : 'absolute w-16 top-0 left-0'} transition-all duration-300 z-10`}>
-                <Navbar drawerOpen={drawerOpen} toggleDrawer={toggleDrawer} />
+        <div className="container mx-auto gap-4">
+            <div className={`w-64 transition-all duration-300 z-10`}>
+                <Navbar />
             </div>
-            <div className={`${!drawerOpen && "ml-20"} w-full min-h-screen`}>
+            <div className={`ms-64 min-h-screen p-4`}>
+
                 {/* <Outlet /> */}
             </div>
         </div>
