@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/navbar/Navbar";
 import { createContext, useState } from "react";
+import TopHeader from "../components/TopHeader";
 export const DataContext = createContext(null);
 
 const MainLayout = () => {
@@ -73,8 +74,10 @@ const MainLayout = () => {
                 <Navbar />
             </div>
             <div className={`ms-64 min-h-screen p-4`}>
-
-                {/* <Outlet /> */}
+                <TopHeader />
+                <div className="bg-slate-200 rounded-md">
+                    <Outlet />
+                </div>
             </div>
         </div>
     );
