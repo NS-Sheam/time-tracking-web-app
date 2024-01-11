@@ -152,30 +152,30 @@ const Dashboard = () => {
                         <h4 className="font-semibold text-xl">Members</h4>
                         <p><FaEllipsisV /></p>
                     </div>
-                    <table className="w-full border-2">
-                        <tbody className="w-full">
-                            <thead>
-                                <th className="text-slate-400 w-full">
-                                    <td className="p-2">Member Info</td>
-                                    <td className="p-2">Today</td>
-                                    <td className="p-2">This Week</td>
-                                </th>
-                            </thead>
-                            <tr className="text-black">
+                    <table className="w-full">
+                        <thead>
+                            <tr className=" ">
+                                <th className="text-slate-400 w-full p-2">Member Info</th>
+                                <th className="text-slate-400 p-2">Today</th>
+                                <th className="text-slate-400 p-2">This Week</th>
+                            </tr>
+                        </thead>
+                        <tbody className=" space-x-3 space-y-2">
+                            <tr className="text-black border border-slate-400 my-2">
                                 <td className="p-2 flex items-center justify-center gap-3">
-                                    <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
+                                    <p className="p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
                                     <div>
                                         <p className="font-bold">Nazmus Sakib</p>
                                         <p>Admin</p>
                                     </div>
-
                                 </td>
-                                <td className="bg-yellow-200 p-2 rounded-md font-semibold">00:00:00</td>
-                                <td className="bg-yellow-200 p-2 rounded-md font-semibold">00:00:00</td>
+                                <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                    00:00:00</button></td>
+                                <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                    00:00:00</button></td>
                             </tr>
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
