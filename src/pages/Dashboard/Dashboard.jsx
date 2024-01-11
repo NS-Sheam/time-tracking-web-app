@@ -8,6 +8,23 @@ import { FaEllipsisV, FaPlay } from "react-icons/fa";
 
 const Dashboard = () => {
 
+    const activitySection = [
+        {
+            title: "Weekly Activity",
+            text: "0%",
+            icon: weeklyactivity,
+        },
+        {
+            title: "Worked This Week",
+            text: "40:00:05",
+            icon: thisWeekIcon,
+        },
+        {
+            title: "Project Worked",
+            text: "02",
+            icon: projectIcon,
+        }
+    ]
     return (
         <div className="space-y-3">
             <div className="flex items-center justify-between">
@@ -21,36 +38,20 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white p-6 rounded-md space-y-2 shadow-md">
-                    <div className="flex items-center justify-between gap-2">
-                        <h4 className="font-bold">Weekly Activity</h4>
-                        <p><FaEllipsisV /></p>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-3xl font-bold">0%</h3>
-                        <img className="bg-yellow-100 p-2 rounded-md w-14 h-14" src={weeklyactivity} alt="" />
-                    </div>
-                </div>
-                <div className="bg-white p-6 rounded-md space-y-2 shadow-md">
-                    <div className="flex items-center justify-between gap-2">
-                        <h4 className="font-bold">Worked This Week</h4>
-                        <p><FaEllipsisV /></p>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-3xl font-bold">40:00:05</h3>
-                        <img className="bg-yellow-100 p-2 rounded-md w-14 h-14" src={thisWeekIcon} alt="" />
-                    </div>
-                </div>
-                <div className="bg-white p-6 rounded-md space-y-2 shadow-md">
-                    <div className="flex items-center justify-between gap-2">
-                        <h4 className="font-bold">Project Worked</h4>
-                        <p><FaEllipsisV /></p>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                        <h3 className="text-3xl font-bold">02</h3>
-                        <img className="bg-yellow-100 p-2 rounded-md w-14 h-14" src={projectIcon} alt="" />
-                    </div>
-                </div>
+                {
+                    activitySection.map((item, index) => (
+                        <div key={index} className="bg-white p-6 rounded-md space-y-2 shadow-md">
+                            <div className="flex items-center justify-between gap-2">
+                                <h4 className="font-bold">{item.title}</h4>
+                                <p><FaEllipsisV /></p>
+                            </div>
+                            <div className="flex items-center justify-between gap-2">
+                                <h3 className="text-3xl font-bold">{item.text}</h3>
+                                <img className="bg-yellow-100 p-2 rounded-md w-14 h-14" src={item.icon} alt="" />
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );
