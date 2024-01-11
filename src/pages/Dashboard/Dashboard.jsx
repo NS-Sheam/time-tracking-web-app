@@ -33,22 +33,77 @@ const Dashboard = () => {
     const projectSection = [
         {
             title: "Project 1",
-            text: "00:30:30",
+            time: "00:30:30",
             parcentage: 80,
             icon: projectIcon,
         },
         {
             title: "Project 2",
-            text: "00:30:30",
+            time: "00:30:30",
             icon: projectIcon,
             parcentage: 50,
         },
         {
             title: "Project 3",
-            text: "00:30:30",
+            time: "00:30:30",
             icon: projectIcon,
             parcentage: 30,
         }
+    ]
+    const members = [
+        {
+            name: "Nazmus Sakib",
+            designation: "Admin",
+            today: "00:00:00",
+            thisWeek: "00:00:00",
+
+        },
+        {
+            name: "Nazmus Sakib",
+            designation: "Admin",
+            today: "00:00:00",
+            thisWeek: "00:00:00",
+
+        },
+        {
+            name: "Nazmus Sakib",
+            designation: "Admin",
+            today: "00:00:00",
+            thisWeek: "00:00:00",
+
+        },
+        {
+            name: "Nazmus Sakib",
+            designation: "Admin",
+            today: "00:00:00",
+            thisWeek: "00:00:00",
+
+        },
+        {
+            name: "Nazmus Sakib",
+            designation: "Admin",
+            today: "00:00:00",
+            thisWeek: "00:00:00",
+
+        },
+    ]
+    const todoList = [
+        {
+            title: "Project 1",
+            time: "00:30:30",
+            parcentage: 80,
+        },
+        {
+            title: "Project 2",
+            time: "00:30:30",
+            parcentage: 50,
+        },
+        {
+            title: "Project 3",
+            time: "00:30:30",
+            parcentage: 30,
+        }
+
     ]
     const recentActivityImages = [
         recent1,
@@ -133,7 +188,7 @@ const Dashboard = () => {
                                     <p className="font-bold">{item.title}</p>
                                 </div>
                                 <div className="col-span-2 flex justify-between items-center gap-2">
-                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{item.text}</button>
+                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{item.time}</button>
                                     <div className="relative w-full bg-slate-400 rounded-full h-2">
                                         <div
                                             style={{ width: `${item.parcentage}%` }}
@@ -154,28 +209,59 @@ const Dashboard = () => {
                     </div>
                     <table className="w-full">
                         <thead>
-                            <tr className=" ">
+                            <tr className=" border-b border-slate-300">
                                 <th className="text-slate-400 w-full p-2">Member Info</th>
                                 <th className="text-slate-400 p-2">Today</th>
                                 <th className="text-slate-400 p-2">This Week</th>
                             </tr>
                         </thead>
-                        <tbody className=" space-x-3 space-y-2">
-                            <tr className="text-black border border-slate-400 my-2">
-                                <td className="p-2 flex items-center justify-center gap-3">
-                                    <p className="p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
-                                    <div>
-                                        <p className="font-bold">Nazmus Sakib</p>
-                                        <p>Admin</p>
-                                    </div>
-                                </td>
-                                <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
-                                    00:00:00</button></td>
-                                <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
-                                    00:00:00</button></td>
-                            </tr>
+                        <tbody className=" space-x-3">
+                            {
+                                members.map((item, index) => (
+                                    <tr key={index} className="text-black bprder-b border-slate-300">
+                                        <td className="p-2 flex items-center justify-center gap-3">
+                                            <p className="p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
+                                            <div>
+                                                <p className="font-bold">{item.name}</p>
+                                                <p>{item.designation}</p>
+                                            </div>
+                                        </td>
+                                        <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                            {item.today}</button></td>
+                                        <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                            {item.thisWeek}</button></td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
+                </div>
+                {/* Project Section  */}
+                <div className={commonBoxClass}>
+                    <div className="flex items-center justify-between gap-2">
+                        <h4 className="font-semibold text-xl">To Do</h4>
+                        <p><FaEllipsisV /></p>
+                    </div>
+                    {
+                        todoList.map((item, index) => (
+                            <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
+                                <div className="col-span-1 flex items-center justify-center gap-3">
+                                    <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
+                                    <p className="font-bold">{item.title}</p>
+                                </div>
+                                <div className="col-span-2 flex justify-between items-center gap-2">
+                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{item.time}</button>
+                                    <div className="relative w-full bg-slate-400 rounded-full h-2">
+                                        <div
+                                            style={{ width: `${item.parcentage}%` }}
+                                            className={`absolute top-0 left-0 bg-yellow-300  rounded-full h-full`}></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        ))
+                    }
+
                 </div>
             </div>
         </div>
