@@ -1,11 +1,13 @@
-import React from 'react';
-import { FaBell, FaSearch } from 'react-icons/fa';
+
+import { FaBell, FaSearch, FaUser } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const TopHeader = () => {
+    const { title } = useSelector(state => state.header)
     return (
         <div className="grid grid-cols-4 items-center">
             <div className="col-span-1 me-auto">
-                <p className="flex items-center justify-center gap-4 text-xl font-extrabold"><FaBars /> {title}</p>
+                <p className="flex items-center justify-center gap-4 text-xl font-extrabold"><FaBarr /> {title}</p>
             </div>
             <div className="col-span-3 flex items-center justify-between gap-2">
                 <div className="relative w-96">

@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/navbar/Navbar";
 import { createContext, useState } from "react";
-import { FaBars, FaBell, FaSearch, FaUser } from "react-icons/fa";
-import { useSelector } from "react-redux";
 export const DataContext = createContext(null);
 
 const MainLayout = () => {
-    const { title } = useSelector(state => state.header)
+
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const [projects, setProjects] = useState([
