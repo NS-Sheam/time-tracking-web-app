@@ -8,7 +8,7 @@ const Chart = () => {
         plugins: {
             legend: {
                 display: true,
-                position: 'bottom',
+                position: 'top',
                 labels: {
                     font: {
                         size: 14,

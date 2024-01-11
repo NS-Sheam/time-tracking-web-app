@@ -12,7 +12,7 @@ const ProjectDetails = ({ project, setShowSingleProject }) => {
 
     return (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md shadow-lg z-10 space-y-4">
-            <h1 className="text-3xl text-black font-extrabold shadow-white ">{project.name} Details</h1>
+            <h1 className="text-3xl text-black font-extrabold shadow-white ">{project.name}</h1>
 
             <div className="text-white">
                 <strong className="text-slate-900 font-extrabold">Project Name:</strong> {project.name}
@@ -23,11 +23,11 @@ const ProjectDetails = ({ project, setShowSingleProject }) => {
             </div>
 
             <div className="text-white">
-                <strong className="text-slate-900 font-extrabold">Status:</strong> In Progress
+                <strong className="text-slate-900 font-extrabold">Status:</strong> {project.status}
             </div>
 
             <div className="text-white">
-                <strong className="text-slate-900 font-extrabold">Total Time Spent:</strong> 3 hours
+                <strong className="text-slate-900 font-extrabold">Total Time Spent:</strong> {project.timeSpent} hours
             </div>
 
             <label

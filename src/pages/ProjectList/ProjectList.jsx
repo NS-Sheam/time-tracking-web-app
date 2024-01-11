@@ -1,17 +1,14 @@
 // ProjectList.js
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import ProjectDetails from '../ProjectDetails/ProjectDetails';
+import { DataContext } from '../../layout/MainLayout';
 
 const ProjectList = () => {
+
+    const { projects } = useContext(DataContext)
     const [selectedProject, setSelectedProject] = useState(null);
     const [showSingleProject, setShowSingleProject] = useState(false);
-
-    const projects = [
-        { id: 1, name: 'Project A', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-        { id: 2, name: 'Project B', description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
-        { id: 3, name: 'Project C', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.' },
-    ];
 
     return (
         <div className="p-8 space-y-4">
@@ -19,7 +16,7 @@ const ProjectList = () => {
             {selectedProject && showSingleProject && <ProjectDetails setShowSingleProject={setShowSingleProject} project={selectedProject} />}
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-                {projects.map(project => (
+                {projects.map((project) => (
                     <div
                         key={project.id}
                         className="bg-white rounded-md shadow-inner shadow-black p-6 transform hover:scale-105 transition-transform space-y-4"
