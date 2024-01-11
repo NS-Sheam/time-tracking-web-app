@@ -1,6 +1,11 @@
 import weeklyactivity from "../../assets/icons/logo-1.png";
 import thisWeekIcon from "../../assets/icons/logo-2.png";
 import projectIcon from "../../assets/icons/folder-logo.png";
+import recent1 from "../../assets/images/recent-1.jpg";
+import recent2 from "../../assets/images/recent-1.jpg";
+import recent3 from "../../assets/images/recent-1.jpg";
+import recent4 from "../../assets/images/recent-1.jpg";
+import recent5 from "../../assets/images/recent-1.jpg";
 
 import { FaEllipsisV, FaPlay } from "react-icons/fa";
 
@@ -27,6 +32,7 @@ const Dashboard = () => {
     ]
     return (
         <div className="space-y-3">
+            {/* Top Section  */}
             <div className="flex items-center justify-between">
                 <div className="py-4 space-y-1">
                     <h3 className="font-bold text-4xl">Today</h3>
@@ -37,6 +43,7 @@ const Dashboard = () => {
                     <p className="p-6 rounded-md bg-yellow-400 text-black text-xl"><FaPlay className="" /></p>
                 </div>
             </div>
+            {/* Activity Section  */}
             <div className="grid grid-cols-3 gap-3">
                 {
                     activitySection.map((item, index) => (
@@ -52,6 +59,13 @@ const Dashboard = () => {
                         </div>
                     ))
                 }
+            </div>
+            {/* Recent Activity and Project Section  */}
+            {/* Recent Activity Section  */}
+            <div className="">
+
+
+
             </div>
         </div>
     );
