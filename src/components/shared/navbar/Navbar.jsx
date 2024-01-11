@@ -27,13 +27,13 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
     const commonClasses = 'text-2xl icon';
 
     return (
-        <div className={`fixed h-screen bg-slate-200 text-white w-64 transition-all duration-300 py-2`}>
+        <div className={`fixed h-screen  text-white w-64 transition-all duration-300 py-2`}>
             <div className=" flex flex-col overflow-hidden p-2">
                 {menuItems.map((item, index) => (
                     <Link
                         onClick={() => dispatch(setTitle(item.text))}
-                        to={item.path} key={index} className="flex items-center p-4 gap-4 text-black hover:bg-black hover:text-white transition-all duration-300 font-semibold rounded-md">
-                        <img src={item.icon} alt="" className=' ' />
+                        to={item.path} key={index} className="menu-item flex items-center p-4 gap-4 text-black hover:bg-black hover:text-white transition-all duration-300 font-semibold rounded-md">
+                        <img src={item.icon} alt="" className={`${item.text !== "Dashboard" ? "nav-logo" : "dashboard-logo"}`} />
                         <p>{item.text}</p>
                     </Link>
                 ))}

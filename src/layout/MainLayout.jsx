@@ -75,7 +75,7 @@ const MainLayout = () => {
             </div>
             <div className={`ms-64 min-h-screen p-4`}>
                 <TopHeader />
-                <div className="bg-slate-200 rounded-md">
+                <div className="bg-slate-200 rounded-md p-2 min-h-screen mt-2">
                     <Outlet />
                 </div>
             </div>

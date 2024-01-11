@@ -11,7 +11,7 @@ const TopHeader = () => {
             </div>
             <div className="col-span-3 flex items-center justify-between gap-2">
                 <div className="relative w-96">
-                    <input placeholder="search project" className="border-2 border-slate-300 bg-slate-200 rounded-md w-96 p-2 placeholder:text-slate-800" type="text" />
+                    <input placeholder="search project" className="border border-slate-300 bg-slate-200 rounded-md w-96 p-2 placeholder:text-slate-500 placeholder:font-light" type="text" />
                     <FaSearch className="absolute top-3 right-3 text-black text-xl font-bold" />
                 </div>
                 <div className="flex items-center justify-between gap-4">

@@ -1,0 +1,9 @@
+.menu-item:hover .nav-logo {
+  filter: invert(100%);
+}
+.dashboard-logo {
+  filter: invert(100%);
+}
+.menu-item:hover .dashboard-logo {
+  filter: invert(0);
+}
