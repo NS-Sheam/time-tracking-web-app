@@ -63,10 +63,6 @@ const MainLayout = () => {
         setDrawerOpen(!drawerOpen);
     };
 
-    const contextData = {
-        projects,
-        setProjects,
-    };
 
     return (
         <div className="container mx-auto gap-4">
