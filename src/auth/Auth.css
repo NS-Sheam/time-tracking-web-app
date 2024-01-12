@@ -1,0 +1,34 @@
+.auth-container {
+  position: relative;
+  width: calc(100vw - 30vw);
+  height: calc(100vh - 20vh);
+  border: 1px solid black;
+  overflow: hidden;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.background-panel {
+  background-color: #ffd700;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-right-radius: 6rem;
+  border-bottom-right-radius: 8rem;
+}
+
+.sign-up .background-panel {
+  transform: translateX(100%);
+  border-top-left-radius: 6rem;
+  border-bottom-left-radius: 8rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

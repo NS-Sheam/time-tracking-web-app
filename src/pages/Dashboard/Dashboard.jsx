@@ -18,7 +18,7 @@ const Dashboard = () => {
     const activitySection = [
         {
             title: "Weekly Activity",
-            text: "0%",
+            text: parseInt((projects.reduce((acc, project) => acc + project.timeSpent, 0) / projects.reduce((acc, project) => acc + project.estimatedTime, 0)) * 100) + "%",
             icon: weeklyactivity,
         },
         {

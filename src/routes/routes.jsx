@@ -5,8 +5,13 @@ import Settings from "../pages/Settings/Settings";
 import { createBrowserRouter } from "react-router-dom";
 import Todo from "../pages/Todo/Todo";
 import Report from "../pages/Report/Report";
+import Auth from "../auth/Auth";
 
 const routes = createBrowserRouter([
+  {
+    path: "/auth",
+    element: <Auth />,
+  },
   {
     path: "/",
     element: <MainLayout />,
@@ -18,7 +23,7 @@ const routes = createBrowserRouter([
       { path: "/todo", element: <Todo /> },
       { path: "/report", element: <Report /> },
     ],
-  },
+  }
 ]);
 
 export default routes;
