@@ -15,7 +15,6 @@ import { formatTime } from "../../utils/timeFn";
 
 const Dashboard = () => {
     const projects = useSelector((state) => state.project);
-    console.log(projects);
 
 
     const activitySection = [
