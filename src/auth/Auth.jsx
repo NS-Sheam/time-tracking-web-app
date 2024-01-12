@@ -54,7 +54,7 @@ const Auth = () => {
     }
 
     return (
-        <div className="inner-container py-4 flex justify-center items-center min-h-screen relative">
+        <div className="inner-container py-4 flex justify-center items-center min-h-screen relative bg-yellow-50">
             <div className={`rounded-3xl shadow-2xl border-white bg-slate-200 border-2 auth-container  ${signUp ? "sign-up" : "login"}`}>
                 <div className="background-panel z-10 shadow-md space-y-3">
                     <h3 className="text-black text-2xl font-bold text-center">{!signUp ? "Don't hava an account?" : "Login to existing account"}</h3>
