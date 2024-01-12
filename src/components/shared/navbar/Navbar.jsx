@@ -8,9 +8,12 @@ import ActiveLink from '../../ActiveLink';
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { DataContext } from "../../../layout/MainLayout"
+import { FaUser } from "react-icons/fa"
+import { AuthContext } from "../../../provider/AuthProvider"
 
 const Navbar = () => {
 
+    const { logOut } = useContext(AuthContext);
     const { darkMode } = useContext(DataContext);
     const menuItems = [
         { icon: dashboardLogo, text: 'Dashboard', path: '/' },
@@ -20,6 +23,13 @@ const Navbar = () => {
         { icon: settingLogo, text: 'Settings', path: '/settings' },
     ];
 
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     return (
         <div className={`${darkMode ? "bg-white" : "bg-black"} fixed h-screen  w-64 transition-all duration-300 `}>
@@ -35,6 +45,9 @@ const Navbar = () => {
                             <p>{item.text}</p>
                         </ActiveLink>
                     ))}
+                    <button
+                        onClick={handleLogOut}
+                        className="bg-yellow-400 text-black font-semibold rounded-md p-2 flex items-center justify-center gap-2"><FaUser /> Logout</button>
                 </div>
             </div>
         </div>

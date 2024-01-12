@@ -3,8 +3,10 @@ import { useContext } from 'react';
 import { FaBars, FaBell, FaSearch, FaUser } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { DataContext } from '../layout/MainLayout';
+import { AuthContext } from '../provider/AuthProvider';
 
 const TopHeader = () => {
+    const { user } = useContext(AuthContext);
     const { darkMode } = useContext(DataContext);
     const { title } = useSelector(state => state.header)
 
@@ -24,11 +26,14 @@ const TopHeader = () => {
                         <FaBell className="text-xl" /></p>
                     <div className="flex justify-center items-center gap-4 text-right">
                         <div>
-                            <p className="text-xl font-bold">Nazmus Sakib</p>
+                            <p className="text-xl font-bold">{user?.displayName ? user?.displayName : "Nazmus Sakib"}</p>
                             <p>Admin</p>
                         </div>
                         <div className="text-white bg-black rounded-full p-2">
-                            <FaUser />
+                            {
+                                user?.photoURL ? <img src={user?.photoURL} alt="" className="w-8 h-8 rounded-full" /> :
+                                    <FaUser />
+                            }
                         </div>
                     </div>
                 </div>

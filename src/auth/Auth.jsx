@@ -1,20 +1,45 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import './Auth.css'; // Import a separate CSS file for styles
+import { AuthContext } from "../provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+    const { createUser, logIn, updateUserProfile } = useContext(AuthContext);
     const [signUp, setSignUp] = useState(false);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const toggleSignUp = () => {
         setSignUp(!signUp);
     };
 
     const handleLoginSignUp = (event) => {
+
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        if (signUp) {
+            createUser(email, password)
+                .then(() => {
+                    updateUserProfile(name, null);
+                    navigate("/");
+                })
+                .catch((error) => {
+                    setError(error.message);
+                });
+
+        } else {
+            logIn(email, password)
+                .then(() => {
+                    navigate("/");
+                })
+                .catch((error) => {
+                    setError(error.message);
+                });
+        }
 
 
     }
@@ -37,11 +62,21 @@ const Auth = () => {
                     <div className={`text-4xl font-extrabold text-center text-black`}>
                         Count <span className="text-yellow-400">M</span>e
                     </div>
+                    {
+                        signUp && (
+                            <input name="name" type="text" placeholder="name" className="w-80 border-black rounded-md shadow-md p-2" />
+                        )
+                    }
                     <input name="email" type="email" placeholder="email" className="w-80 border-black rounded-md shadow-md p-2" />
                     <input name="password" type="password" placeholder="password" className="w-80 border-black rounded-md shadow-md p-2" />
                     <button
                         type="submit"
                         className="w-32 bg-yellow-400 rounded-md shadow-md p-2 font-bold">{signUp ? "Sign Up" : "Login"}</button>
+                    {
+                        error && (
+                            <p className="text-red-500">{error}</p>
+                        )
+                    }
                 </form>
 
             </div>

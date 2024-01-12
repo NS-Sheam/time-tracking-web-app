@@ -5,7 +5,6 @@ import { DataContext } from '../../layout/MainLayout';
 const Settings = () => {
     const [notification, setNotification] = useState(true);
     const [language, setLanguage] = useState('en');
-    const [themeColor, setThemeColor] = useState('#3498db');
     const [fontSize, setFontSize] = useState('medium');
     const [timezone, setTimezone] = useState('UTC');
     const { darkMode, setDarkMode } = useContext(DataContext);
@@ -18,9 +17,7 @@ const Settings = () => {
         setLanguage(e.target.value);
     };
 
-    const handleColorChange = (e) => {
-        setThemeColor(e.target.value);
-    };
+
 
     const handleFontSizeChange = (e) => {
         setFontSize(e.target.value);
