@@ -4,10 +4,13 @@ import { formatTime } from '../../utils/timeFn';
 import { Switch } from '@headlessui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProject } from '../../redux/features/projectSlice';
+import { useContext } from 'react';
+import { DataContext } from '../../layout/MainLayout';
 
 const TimerView = () => {
     const projects = useSelector((state) => state.project);
     const dispatch = useDispatch();
+    const { darkMode } = useContext(DataContext);
 
     const handleStartPause = (project) => {
 
@@ -31,7 +34,7 @@ const TimerView = () => {
         <div className="">
             <h1 className="text-3xl font-bold mb-4">Timer View</h1>
 
-            <table className="w-full rounded-md mb-4 bg-white divide-y divide-gray-200 text-left">
+            <table className={`w-full rounded-md mb-4 ${!darkMode ? "bg-white" : "bg-black text-white"} divide-y divide-gray-200 text-left`}>
                 <thead>
                     <tr>
                         <th className="py-3 px-6">Task</th>

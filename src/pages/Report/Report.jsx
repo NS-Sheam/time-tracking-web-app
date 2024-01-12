@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
 import { formatTime } from "../../utils/timeFn";
 import { FaUser } from "react-icons/fa";
+import { useContext } from "react";
+import { DataContext } from "../../layout/MainLayout";
 
 const Report = () => {
     const projects = useSelector((state) => state.project);
+    const { darkMode } = useContext(DataContext);
     return (
         <div>
             <div className="">
@@ -23,7 +26,7 @@ const Report = () => {
                     <tbody className=" space-x-3 ">
                         {
                             projects.map((item, index) => (
-                                <tr key={index} className="text-black bprder-b border-slate-300">
+                                <tr key={index} className={`bprder-b border-slate-300 ${!darkMode ? "text-black" : "text-white"}`}>
 
                                     <td className="text-xl font-bold">{item.projectName}</td>
                                     <td className="p-2 flex items-center justify-start gap-3 w-full min-w-56">
@@ -33,9 +36,9 @@ const Report = () => {
                                             <p>{item.authorDesignation}</p>
                                         </div>
                                     </td>
-                                    <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                    <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2 text-black">
                                         {formatTime(item.timeSpent)}</button></td>
-                                    <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
+                                    <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2 text-black">
                                         {formatTime(item.timeSpent)}</button></td>
                                     <td>
                                         <div className="relative min-w-56 w-full bg-slate-400 rounded-full h-2">

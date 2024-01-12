@@ -1,5 +1,6 @@
 // Settings.js
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { DataContext } from '../../layout/MainLayout';
 
 const Settings = () => {
     const [notification, setNotification] = useState(true);
@@ -7,8 +8,7 @@ const Settings = () => {
     const [themeColor, setThemeColor] = useState('#3498db');
     const [fontSize, setFontSize] = useState('medium');
     const [timezone, setTimezone] = useState('UTC');
-    const [darkMode, setDarkMode] = useState(false);
-    const [showTasks, setShowTasks] = useState(true);
+    const { darkMode, setDarkMode } = useContext(DataContext);
 
     const handleNotificationToggle = () => {
         setNotification(!notification);
@@ -30,20 +30,14 @@ const Settings = () => {
         setTimezone(e.target.value);
     };
 
-    const handleDarkModeToggle = () => {
-        setDarkMode(!darkMode);
-    };
 
-    const handleShowTasksToggle = () => {
-        setShowTasks(!showTasks);
-    };
 
     return (
-        <div className="p-8 bg-gray-100 rounded-md shadow-inner shadow-lg w-[48rem] mx-auto">
-            <h1 className="text-3xl font-bold mb-4">Settings</h1>
+        <div className={`p-8 ${!darkMode ? "bg-gray-100" : "bg-slate-800"} rounded-md shadow-inner  w-[48rem] mx-auto`}>
+            <h1 className={`text-3xl font-bold mb-4 ${!darkMode ? "text-black" : "text-white"}`}>Settings</h1>
 
             <div className="mb-6">
-                <label className="block text-gray-600 font-bold">Notification</label>
+                <label className={`${!darkMode ? "text-gray-600" : "text-white"} block font-bold`}>Notification</label>
                 <div className="flex items-center">
                     <input
                         type="checkbox"
@@ -52,12 +46,12 @@ const Settings = () => {
                         onChange={handleNotificationToggle}
                         className="mr-2 bg-blue-300 rounded-md"
                     />
-                    <label htmlFor="notification" className="text-gray-700">Enable Notification</label>
+                    <label htmlFor="notification" className={!darkMode ? "text-gray-700" : "text-white"}>Enable Notification</label>
                 </div>
             </div>
 
             <div className="mb-6">
-                <label htmlFor="language" className="block text-gray-600 font-bold">Language</label>
+                <label htmlFor="language" className={`block ${!darkMode ? "text-gray-600" : "text-white"} font-bold`}>Language</label>
                 <select
                     id="language"
                     value={language}
@@ -70,18 +64,7 @@ const Settings = () => {
             </div>
 
             <div className="mb-6">
-                <label htmlFor="themeColor" className="block text-gray-600 font-bold">Theme Color</label>
-                <input
-                    type="color"
-                    id="themeColor"
-                    value={themeColor}
-                    onChange={handleColorChange}
-                    className="bg-blue-300 text-gray-700 p-2 rounded-md"
-                />
-            </div>
-
-            <div className="mb-6">
-                <label htmlFor="fontSize" className="block text-gray-600 font-bold">Font Size</label>
+                <label htmlFor="fontSize" className={`${!darkMode ? "text-gray-600" : "text-white"} block font-bold`}>Font Size</label>
                 <select
                     id="fontSize"
                     value={fontSize}
@@ -94,7 +77,7 @@ const Settings = () => {
             </div>
 
             <div className="mb-6">
-                <label htmlFor="timezone" className="block text-gray-600 font-bold">Timezone</label>
+                <label htmlFor="timezone" className={`block ${!darkMode ? "text-gray-600" : "text-white"} font-bold`}>Timezone</label>
                 <select
                     id="timezone"
                     value={timezone}
@@ -107,30 +90,28 @@ const Settings = () => {
             </div>
 
             <div className="mb-6">
-                <label className="block text-gray-600 font-bold">Dark Mode</label>
+                <label className={`${!darkMode ? "text-gray-600" : "text-white"} block font-bold`}>Dark Mode</label>
                 <div className="flex items-center">
                     <input
                         type="checkbox"
                         id="darkMode"
                         checked={darkMode}
-                        onChange={handleDarkModeToggle}
+                        onChange={() => setDarkMode(!darkMode)}
                         className="mr-2 bg-gray-800 rounded-md"
                     />
-                    <label htmlFor="darkMode" className="text-gray-700">Enable Dark Mode</label>
+                    <label htmlFor="darkMode" className={!darkMode ? "text-gray-700" : "text-white"}>Enable Dark Mode</label>
                 </div>
             </div>
 
             <div className="mb-6">
-                <label className="block text-gray-600 font-bold">Show Tasks</label>
+                <label className={`${!darkMode ? "text-gray-600" : "text-white"} block font-bold`}>Show Tasks</label>
                 <div className="flex items-center">
                     <input
                         type="checkbox"
                         id="showTasks"
-                        checked={showTasks}
-                        onChange={handleShowTasksToggle}
                         className="mr-2 bg-green-500 rounded-md"
                     />
-                    <label htmlFor="showTasks" className="text-gray-700">Show Completed Tasks</label>
+                    <label htmlFor="showTasks" className={!darkMode ? "text-gray-700" : "text-white"}>Show Completed Tasks</label>
                 </div>
             </div>
         </div>

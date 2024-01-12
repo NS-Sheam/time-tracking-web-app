@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import { formatTime } from "../../utils/timeFn";
 import { FaUser } from "react-icons/fa";
+import { useContext } from "react";
+import { DataContext } from "../../layout/MainLayout";
 
 const Todo = () => {
+    const { darkMode } = useContext(DataContext);
     const projects = useSelector((state) => state.project);
     return (
         <div className="">
@@ -10,7 +13,7 @@ const Todo = () => {
             <div className="space-y-2">
                 {
                     projects.filter(project => project.status === "Pending").map((item, index) => (
-                        <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md shadow-sm shadow-black hover:scale-105 duration-300">
+                        <div key={index} className={`grid grid-cols-3 gap-2 p-2 border border-slate-400 ${!darkMode ? "shadow-black text-black" : "shadow-white text-white"} rounded-md shadow-sm hover:scale-105 duration-300`}>
                             <div className="p-2 flex items-center justify-start gap-3">
                                 <p className="col-span-1 p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
                                 <div>
@@ -23,7 +26,7 @@ const Todo = () => {
                                 <p className="font-bold">{item.projectName}</p>
                             </div>
                             <div className="col-span-1 flex justify-between items-center gap-2">
-                                <button className="bg-yellow-200 p-2 rounded-md font-semibold">{formatTime(item.timeSpent)}</button>
+                                <button className="bg-yellow-200 p-2 rounded-md font-semibold text-black">{formatTime(item.timeSpent)}</button>
                                 <div className="relative w-full bg-slate-400 rounded-full h-2">
                                     <div
                                         style={{ width: `${(item.timeSpent / item.estimatedTime) * 100}%` }}
