@@ -49,7 +49,6 @@ const TimerView = () => {
         <div className="">
             <h1 className="text-3xl font-bold mb-4">Timer View</h1>
 
-            {/* Task log table */}
             <table className="w-full rounded-md mb-4 bg-white divide-y divide-gray-200">
                 <thead>
                     <tr>

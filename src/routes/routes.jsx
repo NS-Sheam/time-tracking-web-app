@@ -5,10 +5,11 @@ import ProjectDetails from "../pages/ProjectDetails/ProjectDetails";
 import TimerView from "../pages/TimerView/TimerView";
 import Settings from "../pages/Settings/Settings";
 import Integrations from "../pages/Integrations/Integrations";
-import OfflineMode from "../pages/OfflineMode/OfflineMode";
+
 import Accessibility from "../pages/Accessibility/Accessibility";
 import UserFeedback from "../pages/UserFeedback/UserFeedback";
 import { createBrowserRouter } from "react-router-dom";
+import Todo from "../pages/Todo/Todo";
 
 const routes = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const routes = createBrowserRouter([
       { path: "/time-tracking", element: <TimerView /> },
       { path: "/settings", element: <Settings /> },
       { path: "/integrations", element: <Integrations /> },
-      { path: "/offline-mode", element: <OfflineMode /> },
+      { path: "/todo", element: <Todo /> },
       { path: "/accessibility", element: <Accessibility /> },
       { path: "/user-feedback", element: <UserFeedback /> },
     ],
