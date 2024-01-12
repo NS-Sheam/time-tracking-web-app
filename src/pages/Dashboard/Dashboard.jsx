@@ -9,13 +9,13 @@ import recent5 from "../../assets/images/recent-5.jpg";
 
 import { FaEllipsisV, FaPlay, FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { formatTime } from "../../utils/timeFn";
+import { formatTime, getCurrentDateFormatted } from "../../utils/timeFn";
 
 
 
 const Dashboard = () => {
     const projects = useSelector((state) => state.project);
-
+    const { fullDay, formattedDate } = getCurrentDateFormatted();
 
     const activitySection = [
         {
@@ -47,8 +47,8 @@ const Dashboard = () => {
             {/* Top Section  */}
             <div className="flex items-center justify-between">
                 <div className="py-4 space-y-1">
-                    <h3 className="font-bold text-4xl">Today</h3>
-                    <p className="text-xl font-semibold">Mon 22, 2023|10 AM</p>
+                    <h3 className="font-bold text-4xl">{fullDay}</h3>
+                    <p className="text-xl font-semibold">{formattedDate}</p>
                 </div>
                 <div className="flex items-center justify-center gap-4 bg-white rounded-md p-6 shadow-md">
                     <p className="text-xl font-bold">Start Time Tracker</p>

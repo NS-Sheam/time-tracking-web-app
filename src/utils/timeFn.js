@@ -27,3 +27,25 @@ export function formatTimeFromHours(time) {
 
   return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
+
+export const getCurrentDateFormatted = () => {
+  const optionsFullDay = { weekday: "long" };
+  const optionsFormattedDate = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  };
+
+  const currentDate = new Date();
+
+  const fullDayFormatter = new Intl.DateTimeFormat("en-US", optionsFullDay);
+  const formattedDateFormatter = new Intl.DateTimeFormat("en-US", optionsFormattedDate);
+
+  const fullDay = fullDayFormatter.format(currentDate);
+  const formattedDate = formattedDateFormatter.format(currentDate);
+
+  return { fullDay, formattedDate };
+};

@@ -10,7 +10,7 @@ const Todo = () => {
             <div className="space-y-2">
                 {
                     projects.filter(project => project.status === "Pending").map((item, index) => (
-                        <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
+                        <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md shadow-md shadow-black hover:scale-105 duration-300">
                             <div className="col-span-1 flex items-center justify-center gap-3">
                                 <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
                                 <p className="font-bold">{item.projectName}</p>

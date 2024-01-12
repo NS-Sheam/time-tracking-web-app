@@ -10,21 +10,19 @@ const TimerView = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const intervals = projects.map((project) => {
-            return setInterval(() => {
+        const interval = setInterval(() => {
+            projects.forEach((project) => {
                 if (project.isRunning) {
                     dispatch(updateProject({
                         id: project.id,
                         timeSpent: project.timeSpent + 1,
-                        isRunning: true,
+                        isRunning: project.isRunning,
                     }));
                 }
-            }, 1000);
-        });
+            });
+        }, 1000);
 
-        return () => {
-            intervals.forEach((interval) => clearInterval(interval));
-        };
+        return () => clearInterval(interval);
     }, [projects, dispatch]);
 
 

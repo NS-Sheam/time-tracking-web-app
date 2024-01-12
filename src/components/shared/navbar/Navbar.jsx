@@ -19,7 +19,6 @@ const Navbar = ({ drawerOpen, toggleDrawer }) => {
     const menuItems = [
         { icon: dashboardLogo, text: 'Dashboard', path: '/' },
         { icon: analyticsLogo, text: 'Analytics', path: '/time-tracking' },
-        { icon: timesheetLogo, text: 'Timesheets', path: '/timesheet' },
         { icon: todoLogo, text: 'Todo', path: '/todo' },
         { icon: reportLogo, text: 'Report', path: '/report' },
         { icon: settingLogo, text: 'Settings', path: '/settings' },
