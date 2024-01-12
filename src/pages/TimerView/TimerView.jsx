@@ -50,7 +50,7 @@ const TimerView = () => {
     };
 
     return (
-        <div className="p-8 bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded-md shadow-lg">
+        <div className="">
             <h1 className="text-3xl font-bold mb-4">Timer View</h1>
 
             {/* <div className="flex items-center space-x-4 mb-6">
@@ -93,14 +93,14 @@ const TimerView = () => {
 
             {/* Task log table */}
             <table className="w-full rounded-md mb-4 bg-white divide-y divide-gray-200">
-                <thead className="bg-gray-700 text-white">
+                <thead className="">
                     <tr>
                         <th className="py-3 px-6">Task</th>
                         <th className="py-3 px-6">Time</th>
                         <th className="py-3 px-6">Actions</th>
                     </tr>
                 </thead>
-                <tbody className="bg-gray-800 text-white divide-y divide-gray-700">
+                <tbody className="text-center divide-y divide-gray-700">
                     {tasks.map((task) => (
                         <tr key={task.id}>
                             <td className="py-4 px-6">{task.name}</td>
