@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
-    const { createUser, logIn, updateUserProfile } = useContext(AuthContext);
+    const { createUser, logIn, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
     const [signUp, setSignUp] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -43,6 +43,15 @@ const Auth = () => {
 
 
     }
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(() => {
+                navigate("/");
+            })
+            .catch((error) => {
+                setError(error.message);
+            });
+    }
 
     return (
         <div className="inner-container py-4 flex justify-center items-center min-h-screen relative">
@@ -51,7 +60,9 @@ const Auth = () => {
                     <h3 className="text-black text-2xl font-bold text-center">{!signUp ? "Don't hava an account?" : "Login to existing account"}</h3>
                     <div className="flex flex-col gap-4 items-center justify-center">
                         <button onClick={toggleSignUp} className="w-48 bg-white text-black rounded-md shadow-md p-2 font-bold">{signUp ? "Login" : "Sign Up"}</button>
-                        <button className="w-48 bg-white text-black rounded-md shadow-md p-2 font-bold flex items-center justify-center gap-2">
+                        <button
+                            onClick={handleGoogleLogin}
+                            className="w-48 bg-white text-black rounded-md shadow-md p-2 font-bold flex items-center justify-center gap-2">
                             <FaGoogle className="" /> Login With Google
                         </button>
                     </div>

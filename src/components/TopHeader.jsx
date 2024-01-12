@@ -29,10 +29,10 @@ const TopHeader = () => {
                             <p className="text-xl font-bold">{user?.displayName ? user?.displayName : "Nazmus Sakib"}</p>
                             <p>Admin</p>
                         </div>
-                        <div className="text-white bg-black rounded-full p-2">
+                        <div className={`text-white bg-black rounded-full ${!user?.photoURL ? "p-2" : ""}`}>
                             {
                                 user?.photoURL ? <img src={user?.photoURL} alt="" className="w-8 h-8 rounded-full" /> :
-                                    <FaUser />
+                                    <FaUser className='' />
                             }
                         </div>
                     </div>
