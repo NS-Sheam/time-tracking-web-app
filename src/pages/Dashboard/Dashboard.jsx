@@ -8,10 +8,15 @@ import recent4 from "../../assets/images/recent-4.jpg";
 import recent5 from "../../assets/images/recent-5.jpg";
 
 import { FaEllipsisV, FaPlay, FaUser } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { formatTime } from "../../utils/timeFn";
 
 
 
 const Dashboard = () => {
+    const projects = useSelector((state) => state.project);
+    console.log(projects);
+
 
     const activitySection = [
         {
@@ -181,17 +186,17 @@ const Dashboard = () => {
                         <p><FaEllipsisV /></p>
                     </div>
                     {
-                        projectSection.map((item, index) => (
+                        projects.map((item, index) => (
                             <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
                                 <div className="col-span-1 flex items-center justify-center gap-3">
                                     <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
-                                    <p className="font-bold">{item.title}</p>
+                                    <p className="font-bold">{item.projectName}</p>
                                 </div>
                                 <div className="col-span-2 flex justify-between items-center gap-2">
-                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{item.time}</button>
+                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{formatTime(item.timeSpent)}</button>
                                     <div className="relative w-full bg-slate-400 rounded-full h-2">
                                         <div
-                                            style={{ width: `${item.parcentage}%` }}
+                                            style={{ width: `${(item.timeSpent / item.estimatedTime) * 100}%` }}
                                             className={`absolute top-0 left-0 bg-yellow-300  rounded-full h-full`}></div>
                                     </div>
                                 </div>
@@ -217,19 +222,19 @@ const Dashboard = () => {
                         </thead>
                         <tbody className=" space-x-3">
                             {
-                                members.map((item, index) => (
+                                projects.map((item, index) => (
                                     <tr key={index} className="text-black bprder-b border-slate-300">
                                         <td className="p-2 flex items-center justify-center gap-3">
                                             <p className="p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
                                             <div>
-                                                <p className="font-bold">{item.name}</p>
-                                                <p>{item.designation}</p>
+                                                <p className="font-bold">{item.projectAuthor}</p>
+                                                <p>{item.authorDesignation}</p>
                                             </div>
                                         </td>
                                         <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
-                                            {item.today}</button></td>
+                                            {formatTime(item.timeSpent)}</button></td>
                                         <td className=""><button className="bg-yellow-200 p-2 rounded-md font-semibold mx-2">
-                                            {item.thisWeek}</button></td>
+                                            {formatTime(item.timeSpent)}</button></td>
                                     </tr>
                                 ))
                             }
@@ -243,17 +248,17 @@ const Dashboard = () => {
                         <p><FaEllipsisV /></p>
                     </div>
                     {
-                        todoList.map((item, index) => (
+                        projects.filter(project => project.status === "Pending").map((item, index) => (
                             <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
                                 <div className="col-span-1 flex items-center justify-center gap-3">
                                     <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
-                                    <p className="font-bold">{item.title}</p>
+                                    <p className="font-bold">{item.projectName}</p>
                                 </div>
                                 <div className="col-span-2 flex justify-between items-center gap-2">
-                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{item.time}</button>
+                                    <button className="bg-yellow-200 p-2 rounded-md font-semibold">{formatTime(item.timeSpent)}</button>
                                     <div className="relative w-full bg-slate-400 rounded-full h-2">
                                         <div
-                                            style={{ width: `${item.parcentage}%` }}
+                                            style={{ width: `${(item.timeSpent / item.estimatedTime) * 100}%` }}
                                             className={`absolute top-0 left-0 bg-yellow-300  rounded-full h-full`}></div>
                                     </div>
                                 </div>
