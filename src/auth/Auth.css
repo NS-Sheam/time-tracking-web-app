@@ -31,10 +31,10 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-button {
+.auth-container button {
   transition: all 0.4s ease-in-out;
 }
-button:hover {
+.auth-container button:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
