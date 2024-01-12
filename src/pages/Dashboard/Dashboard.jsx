@@ -5,12 +5,15 @@ import projectIcon from "../../assets/icons/folder-logo.png";
 import { FaEllipsisV, FaPlay, FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { formatTime, getCurrentDateFormatted } from "../../utils/timeFn";
+import { useContext } from "react";
+import { DataContext } from "../../layout/MainLayout";
 
 
 
 const Dashboard = () => {
     const projects = useSelector((state) => state.project);
     const { fullDay, formattedDate } = getCurrentDateFormatted();
+    const { darkMode } = useContext(DataContext);
 
     const activitySection = [
         {
@@ -29,7 +32,7 @@ const Dashboard = () => {
             icon: projectIcon,
         }
     ]
-    const commonBoxClass = "bg-white p-6 rounded-md space-y-2 shadow-md";
+    const commonBoxClass = `${!darkMode ? "bg-white shadow-md text-black" : "bg-black shadow-white border border-white shadow-sm text-white"} p-6 rounded-md space-y-2 `;
     return (
         <div className="space-y-3">
             {/* Top Section  */}
@@ -38,7 +41,7 @@ const Dashboard = () => {
                     <h3 className="font-bold text-4xl">{fullDay}</h3>
                     <p className="text-xl font-semibold">{formattedDate}</p>
                 </div>
-                <div className="flex items-center justify-center gap-4 bg-white rounded-md p-6 shadow-md">
+                <div className={`{${!darkMode ? "bg-white text-black shadow-md" : "bg-black text-white shadow-white border border-white"} flex items-center justify-center gap-4 rounded-md p-6`}>
                     <p className="text-xl font-bold">Start Time Tracker</p>
                     <p className="p-4 rounded-md bg-yellow-400 text-black text-xl"><FaPlay className="" /></p>
                 </div>
@@ -71,7 +74,7 @@ const Dashboard = () => {
                     <div className="flex justify-between items-center gap-2 text-black">
                         <div className="flex items-center justify-center gap-3">
                             <p className="p-2 bg-orange-500 rounded-full text-white"><FaUser /></p>
-                            <p className="font-bold">Nazmus Sakib</p>
+                            <p className={`font-bold ${!darkMode ? "text-black" : "text-white"}`}>Nazmus Sakib</p>
                         </div>
                         <button className="bg-yellow-200 p-2 rounded-md font-semibold">View all</button>
                     </div>
@@ -102,7 +105,7 @@ const Dashboard = () => {
                             <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
                                 <div className="col-span-1 flex items-center justify-center gap-3">
                                     <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
-                                    <p className="font-bold">{item.projectName}</p>
+                                    <p className={`font-bold text-sm ${!darkMode ? "text-black" : "text-white"}`}>{item.projectName}</p>
                                 </div>
                                 <div className="col-span-2 flex justify-between items-center gap-2">
                                     <button className="bg-yellow-200 p-2 rounded-md font-semibold">{formatTime(item.timeSpent)}</button>
@@ -138,7 +141,7 @@ const Dashboard = () => {
                                     <tr key={index} className="text-black bprder-b border-slate-300">
                                         <td className="p-2 flex items-center justify-center gap-3">
                                             <p className="p-2 bg-yellow-100 rounded-full text-black mx-2"><FaUser /></p>
-                                            <div>
+                                            <div className={`${!darkMode ? "text-black" : "text-white"}`}>
                                                 <p className="font-bold">{item.projectAuthor}</p>
                                                 <p>{item.authorDesignation}</p>
                                             </div>
@@ -153,7 +156,7 @@ const Dashboard = () => {
                         </tbody>
                     </table>
                 </div>
-                {/* Project Section  */}
+                {/* Todo Section  */}
                 <div className={commonBoxClass}>
                     <div className="flex items-center justify-between gap-2">
                         <h4 className="font-semibold text-xl">To Do</h4>
@@ -164,7 +167,7 @@ const Dashboard = () => {
                             <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
                                 <div className="col-span-1 flex items-center justify-center gap-3">
                                     <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>
-                                    <p className="font-bold">{item.projectName}</p>
+                                    <p className={`${!darkMode ? "text-black" : "text-white"} text-sm font-bold`}>{item.projectName}</p>
                                 </div>
                                 <div className="col-span-2 flex justify-between items-center gap-2">
                                     <button className="bg-yellow-200 p-2 rounded-md font-semibold">{formatTime(item.timeSpent)}</button>
