@@ -9,7 +9,7 @@ const Todo = () => {
     const projects = useSelector((state) => state.project);
     return (
         <div className="">
-            <h1 className="text-3xl font-bold mb-4">Todo List</h1>
+            <h1 className={`${!darkMode ? "text-black" : "text-white"} text-3xl font-bold mb-4`}>Todo List</h1>
             <div className="space-y-2">
                 {
                     projects.filter(project => project.status === "Pending").map((item, index) => (

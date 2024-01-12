@@ -32,7 +32,7 @@ const TimerView = () => {
 
     return (
         <div className="">
-            <h1 className="text-3xl font-bold mb-4">Timer View</h1>
+            <h1 className={`${!darkMode ? "text-black" : "text-white"} text-3xl font-bold mb-4`}>Timer View</h1>
 
             <table className={`w-full rounded-md mb-4 ${!darkMode ? "bg-white" : "bg-black text-white"} divide-y divide-gray-200 text-left`}>
                 <thead>

@@ -11,7 +11,7 @@ const Report = () => {
         <div>
             <div className="">
                 <div className="flex items-center justify-between gap-2">
-                    <h4 className=" text-3xl font-bold mb-4">Reports</h4>
+                    <h4 className={`${!darkMode ? "text-black" : "text-white"} text-3xl font-bold mb-4`}>Reports</h4>
                 </div>
                 <table className="w-full">
                     <thead>

@@ -37,7 +37,7 @@ const Dashboard = () => {
         <div className="space-y-3">
             {/* Top Section  */}
             <div className="flex items-center justify-between">
-                <div className="py-4 space-y-1">
+                <div className={`${!darkMode ? "text-black" : "text-white"} py-4 space-y-1`}>
                     <h3 className="font-bold text-4xl">{fullDay}</h3>
                     <p className="text-xl font-semibold">{formattedDate}</p>
                 </div>

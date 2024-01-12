@@ -33,7 +33,7 @@ const MainLayout = () => {
 
     return (
         <DataContext.Provider value={layOutData}>
-            <div className="container mx-auto gap-4">
+            <div className={`container mx-auto gap-4 ${!darkMode ? "bg-white" : "bg-slate-700"}`}>
                 <div className={`w-64 transition-all duration-300 z-10`}>
                     <Navbar />
                 </div>

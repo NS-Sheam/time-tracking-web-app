@@ -22,10 +22,10 @@ const Navbar = () => {
 
 
     return (
-        <div className={`${darkMode ? "bg-white" : "bg-black"} fixed h-screen  w-64 transition-all duration-300 py-2`}>
-            <div className={`${!darkMode ? "bg-white" : "bg-black"} h-full`}>
+        <div className={`${darkMode ? "bg-white" : "bg-black"} fixed h-screen  w-64 transition-all duration-300 `}>
+            <div className={`${!darkMode ? "bg-white" : "bg-black"} h-full py-2`}>
                 <div className=" flex flex-col overflow-hidden p-2 gap-2">
-                    <Link to="/" className="text-3xl font-extrabold text-black text-center">
+                    <Link to="/" className={`text-3xl font-extrabold text-center ${!darkMode ? "text-black" : "text-white"}`}>
                         Count <span className="text-yellow-400">M</span>e
                     </Link>
                     {menuItems.map((item, index) => (

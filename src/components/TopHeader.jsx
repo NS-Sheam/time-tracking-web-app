@@ -1,12 +1,15 @@
 
+import { useContext } from 'react';
 import { FaBars, FaBell, FaSearch, FaUser } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { DataContext } from '../layout/MainLayout';
 
 const TopHeader = () => {
+    const { darkMode } = useContext(DataContext);
     const { title } = useSelector(state => state.header)
 
     return (
-        <div className="grid grid-cols-4 items-center">
+        <div className={`grid grid-cols-4 items-center ${!darkMode ? "text-black" : "text-white"}`}>
             <div className="col-span-1 me-auto">
                 <p className="flex items-center justify-center gap-4 text-xl font-extrabold"><FaBars /> {title}</p>
             </div>
