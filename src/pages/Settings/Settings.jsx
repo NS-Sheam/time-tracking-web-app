@@ -30,7 +30,7 @@ const Settings = () => {
 
     return (
         <div className="">
-            <h1 className="text-3xl font-bold my-4 text-white">Settings</h1>
+            <h1 className="text-3xl font-bold mb-4">Settings</h1>
 
             <div className='p-8 bg-white rounded-md shadow-inner shadow-black w-[48rem] mx-auto'>
                 <div className="mb-6">
@@ -41,7 +41,7 @@ const Settings = () => {
                             id="notification"
                             checked={notification}
                             onChange={handleNotificationToggle}
-                            className="mr-2 bg-gray-200 rounded-md"
+                            className="mr-2 bg-yellow-300 rounded-md"
                         />
                         <label htmlFor="notification" className="text-gray-700">Enable Notification</label>
                     </div>
@@ -53,7 +53,7 @@ const Settings = () => {
                         id="language"
                         value={language}
                         onChange={handleLanguageChange}
-                        className="bg-gray-200 text-gray-700 p-2 rounded-md">
+                        className="bg-yellow-300 text-gray-700 p-2 rounded-md">
                         <option value="en">English</option>
                         <option value="es">Spanish</option>
                         <option value="fr">French</option>
@@ -67,7 +67,7 @@ const Settings = () => {
                         id="themeColor"
                         value={themeColor}
                         onChange={handleColorChange}
-                        className="bg-gray-200 text-gray-700 p-2 rounded-md"
+                        className="bg-yellow-300 text-gray-700 p-2 rounded-md"
                     />
                 </div>
 
@@ -77,7 +77,7 @@ const Settings = () => {
                         id="fontSize"
                         value={fontSize}
                         onChange={handleFontSizeChange}
-                        className="bg-gray-200 text-gray-700 p-2 rounded-md">
+                        className="bg-yellow-300 text-gray-700 p-2 rounded-md">
                         <option value="small">Small</option>
                         <option value="medium">Medium</option>
                         <option value="large">Large</option>
@@ -90,7 +90,7 @@ const Settings = () => {
                         id="timezone"
                         value={timezone}
                         onChange={handleTimezoneChange}
-                        className="bg-gray-200 text-gray-700 p-2 rounded-md">
+                        className="bg-yellow-300 text-gray-700 p-2 rounded-md">
                         <option value="UTC">UTC</option>
                         <option value="GMT">GMT</option>
                         <option value="EST">EST</option>

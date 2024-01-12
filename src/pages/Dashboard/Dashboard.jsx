@@ -25,12 +25,12 @@ const Dashboard = () => {
         },
         {
             title: "Worked This Week",
-            text: "40:00:05",
+            text: formatTime(projects.reduce((acc, project) => acc + project.timeSpent, 0)),
             icon: thisWeekIcon,
         },
         {
             title: "Project Worked",
-            text: "02",
+            text: projects.filter(project => project.status === "Completed").length,
             icon: projectIcon,
         }
     ]

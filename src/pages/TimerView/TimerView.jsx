@@ -31,7 +31,7 @@ const TimerView = () => {
         <div className="">
             <h1 className="text-3xl font-bold mb-4">Timer View</h1>
 
-            <table className="w-full rounded-md mb-4 bg-white divide-y divide-gray-200">
+            <table className="w-full rounded-md mb-4 bg-white divide-y divide-gray-200 text-left">
                 <thead>
                     <tr>
                         <th className="py-3 px-6">Task</th>
@@ -39,7 +39,7 @@ const TimerView = () => {
                         <th className="py-3 px-6">Actions</th>
                     </tr>
                 </thead>
-                <tbody className="text-center divide-y divide-gray-700">
+                <tbody className=" divide-y divide-gray-700">
                     {projects.map((project) => (
                         <tr key={project.id}>
                             <td className="py-4 px-6">{project.projectName}</td>

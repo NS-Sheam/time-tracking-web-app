@@ -5,6 +5,7 @@ import reportLogo from "../../../assets/icons/report.png"
 import settingLogo from "../../../assets/icons/setting.png"
 import './Navbar.css';
 import ActiveLink from '../../ActiveLink';
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
 
@@ -21,6 +22,9 @@ const Navbar = () => {
     return (
         <div className={`fixed h-screen  text-white w-64 transition-all duration-300 py-2`}>
             <div className=" flex flex-col overflow-hidden p-2 gap-2">
+                <Link to="/" className="text-3xl font-extrabold text-black text-center">
+                    Count <span className="text-yellow-400">M</span>e
+                </Link>
                 {menuItems.map((item, index) => (
                     <ActiveLink
                         to={item.path} key={index} title={item.text}>
