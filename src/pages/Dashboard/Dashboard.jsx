@@ -186,7 +186,7 @@ const Dashboard = () => {
                         <p><FaEllipsisV /></p>
                     </div>
                     {
-                        projects.map((item, index) => (
+                        projects.filter(project => project.status !== "Pending").map((item, index) => (
                             <div key={index} className="grid grid-cols-3 gap-2 text-black p-2 border border-slate-400 rounded-md">
                                 <div className="col-span-1 flex items-center justify-center gap-3">
                                     <p className="p-2 bg-yellow-100 rounded-full text-black"><FaUser /></p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 import { formatTime } from '../../utils/timeFn';
 import { Switch } from '@headlessui/react';

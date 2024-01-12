@@ -64,6 +64,12 @@ const projectSlice = createSlice({
       const { id, timeSpent, isRunning } = action.payload;
       const project = state.find((p) => p.id === id);
       if (project) {
+        if (timeSpent === project.estimatedTime) {
+          project.status = "Completed";
+          project.timeSpent = timeSpent;
+          project.isRunning = false;
+          return;
+        }
         project.timeSpent = timeSpent;
         project.isRunning = isRunning;
       }
