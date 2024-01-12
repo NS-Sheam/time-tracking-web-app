@@ -5,7 +5,7 @@ import reportLogo from "../../../assets/icons/report.png"
 import settingLogo from "../../../assets/icons/setting.png"
 import './Navbar.css';
 import ActiveLink from '../../ActiveLink';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { DataContext } from "../../../layout/MainLayout"
 import { FaUser } from "react-icons/fa"
@@ -15,6 +15,7 @@ const Navbar = () => {
 
     const { logOut } = useContext(AuthContext);
     const { darkMode } = useContext(DataContext);
+    const navigate = useNavigate();
     const menuItems = [
         { icon: dashboardLogo, text: 'Dashboard', path: '/' },
         { icon: analyticsLogo, text: 'Analytics', path: '/time-tracking' },
@@ -25,7 +26,9 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then()
+            .then(() => {
+                navigate("/auth")
+            })
             .catch(error => {
                 console.log(error);
             })

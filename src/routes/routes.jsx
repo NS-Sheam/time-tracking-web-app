@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Todo from "../pages/Todo/Todo";
 import Report from "../pages/Report/Report";
 import Auth from "../auth/Auth";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -14,7 +15,9 @@ const routes = createBrowserRouter([
   },
   {
     path: "/",
-    element: <MainLayout />,
+    element: <PrivateRoutes>
+      <MainLayout />
+    </PrivateRoutes>,
     errorElement: <h1>Not Found</h1>,
     children: [
       { path: "/", element: <Dashboard /> },
