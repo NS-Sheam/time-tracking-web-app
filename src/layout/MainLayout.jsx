@@ -25,7 +25,7 @@ const MainLayout = () => {
 
         return () => clearInterval(interval);
     }, [projects, dispatch]);
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(false);
     const layOutData = {
         darkMode,
         setDarkMode,

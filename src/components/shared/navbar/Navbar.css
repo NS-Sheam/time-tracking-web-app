@@ -2,10 +2,15 @@
 .menu-item.active .nav-logo {
   filter: invert(100%);
 }
-
+.darkOn.nav-logo {
+  filter: invert(100%);
+}
+.darkOff.nav-logo {
+  filter: invert(0);
+}
 .pending .dashboard-logo {
   filter: invert(100%);
 }
-/* .menu-item:hover .dashboard-logo {
+.menu-item:hover .dashboard-logo {
   filter: invert(0);
-} */
+}

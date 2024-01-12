@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
-import './Auth.css'; // Import a separate CSS file for styles
+import './Auth.css';
 import { AuthContext } from "../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 

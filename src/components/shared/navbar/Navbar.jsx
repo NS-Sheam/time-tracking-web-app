@@ -35,7 +35,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className={`${darkMode ? "bg-white" : "bg-black"} fixed h-screen  w-64 transition-all duration-300 `}>
+        <div className={`${!darkMode ? "bg-white" : "bg-black "} fixed h-screen  w-64 transition-all duration-300 `}>
             <div className={`${!darkMode ? "bg-white" : "bg-black"} h-full py-2`}>
                 <div className=" flex flex-col overflow-hidden p-2 gap-2">
                     <Link to="/" className={`text-3xl font-extrabold text-center ${!darkMode ? "text-black" : "text-white"}`}>
@@ -44,7 +44,7 @@ const Navbar = () => {
                     {menuItems.map((item, index) => (
                         <ActiveLink
                             to={item.path} key={index} title={item.text}>
-                            <img src={item.icon} alt="" className={`${item.text !== "Dashboard" ? "nav-logo" : "dashboard-logo"}`} />
+                            <img src={item.icon} alt="" className={`${item.text !== "Dashboard" ? "nav-logo" : "dashboard-logo"} ${!darkMode ? "darkOff" : "darkOn"}`} />
                             <p>{item.text}</p>
                         </ActiveLink>
                     ))}
