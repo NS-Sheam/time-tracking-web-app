@@ -2,7 +2,6 @@
   position: relative;
   width: calc(100vw - 30vw);
   height: calc(100vh - 20vh);
-  border: 1px solid black;
   overflow: hidden;
   display: flex;
   transition: transform 0.5s ease-in-out;
