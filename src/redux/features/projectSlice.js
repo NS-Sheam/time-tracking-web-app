@@ -62,10 +62,10 @@ const projectSlice = createSlice({
     },
     updateProject(state, action) {
       const { id, timeSpent, isRunning } = action.payload;
-      const existingProject = state.find((project) => project.id === id);
-      if (existingProject) {
-        existingProject.timeSpent = timeSpent;
-        existingProject.isRunning = isRunning;
+      const project = state.find((p) => p.id === id);
+      if (project) {
+        project.timeSpent = timeSpent;
+        project.isRunning = isRunning;
       }
     },
   },
