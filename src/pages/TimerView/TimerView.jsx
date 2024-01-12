@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+
 import 'react-circular-progressbar/dist/styles.css';
 import { formatTime } from '../../utils/timeFn';
 import { Switch } from '@headlessui/react';
@@ -8,23 +8,6 @@ import { updateProject } from '../../redux/features/projectSlice';
 const TimerView = () => {
     const projects = useSelector((state) => state.project);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            projects.forEach((project) => {
-                if (project.isRunning) {
-                    dispatch(updateProject({
-                        id: project.id,
-                        timeSpent: project.timeSpent + 1,
-                        isRunning: project.isRunning,
-                    }));
-                }
-            });
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [projects, dispatch]);
-
 
     const handleStartPause = (project) => {
 
@@ -36,6 +19,7 @@ const TimerView = () => {
     };
 
     const handleReset = (project) => {
+
         dispatch(updateProject({
             id: project.id,
             timeSpent: 0,
@@ -79,8 +63,7 @@ const TimerView = () => {
                                         </Switch>
                                         <button
                                             onClick={() => handleReset(project)}
-                                            className="text-blue-500 hover:text-blue-600 ml-2"
-                                            disabled={project.timeSpent === 0 || project.isRunning}
+                                            className="text-blue-500 hover:text-blue-600 ml-2 z-10"
                                         >
                                             Reset
                                         </button>

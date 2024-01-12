@@ -1,63 +1,34 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/navbar/Navbar";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import TopHeader from "../components/TopHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProject } from "../redux/features/projectSlice";
 export const DataContext = createContext(null);
 
 const MainLayout = () => {
 
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const [projects, setProjects] = useState([
-        {
-            id: 1,
-            name: 'Project 1',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            status: 'In Progress',
-            timeSpent: 0,
-            isRunning: false,
-        },
-        {
-            id: 2,
-            name: 'Project 2',
-            description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            status: 'Not Started',
-            timeSpent: 0,
-            isRunning: false,
-        },
-        {
-            id: 3,
-            name: 'Project 3',
-            description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-            status: 'Completed',
-            timeSpent: 0,
-            isRunning: false,
-        },
-        {
-            id: 4,
-            name: 'Project 4',
-            description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse.',
-            status: 'Not Started',
-            timeSpent: 0,
-            isRunning: false,
-        },
-        {
-            id: 5,
-            name: 'Project 5',
-            description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.',
-            status: 'Completed',
-            timeSpent: 0,
-            isRunning: false,
-        },
-        {
-            id: 6,
-            name: 'Project 6',
-            description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.',
-            status: 'Completed',
-            timeSpent: 0,
-            isRunning: false,
-        }
-    ]);
+    const projects = useSelector((state) => state.project);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            projects.forEach((project) => {
+                if (project.isRunning) {
+                    dispatch(updateProject({
+                        id: project.id,
+                        timeSpent: project.timeSpent + 1,
+                        isRunning: project.isRunning,
+                    }));
+                }
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [projects, dispatch]);
+
 
     const toggleDrawer = () => {
         setDrawerOpen(!drawerOpen);
