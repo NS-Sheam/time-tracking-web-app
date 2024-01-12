@@ -1,14 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/navbar/Navbar";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 import TopHeader from "../components/TopHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProject } from "../redux/features/projectSlice";
 export const DataContext = createContext(null);
 
 const MainLayout = () => {
-
-    const [drawerOpen, setDrawerOpen] = useState(false);
 
     const projects = useSelector((state) => state.project);
     const dispatch = useDispatch();
@@ -28,11 +26,6 @@ const MainLayout = () => {
 
         return () => clearInterval(interval);
     }, [projects, dispatch]);
-
-
-    const toggleDrawer = () => {
-        setDrawerOpen(!drawerOpen);
-    };
 
 
     return (

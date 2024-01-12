@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import image1 from "../../assets/images/recent-1.jpg";
+import image2 from "../../assets/images/recent-2.jpg";
+import image3 from "../../assets/images/recent-3.jpg";
+import image4 from "../../assets/images/recent-4.jpg";
+import image5 from "../../assets/images/recent-5.jpg";
 const initialState = [
   {
     id: 1,
@@ -10,6 +14,7 @@ const initialState = [
     timeSpent: 0,
     estimatedTime: 30,
     isRunning: false,
+    image: image1,
   },
   {
     id: 2,
@@ -20,6 +25,7 @@ const initialState = [
     timeSpent: 0,
     estimatedTime: 25,
     isRunning: false,
+    image: image2,
   },
   {
     id: 3,
@@ -30,6 +36,7 @@ const initialState = [
     timeSpent: 0,
     estimatedTime: 20,
     isRunning: false,
+    image: image3,
   },
   {
     id: 4,
@@ -40,6 +47,7 @@ const initialState = [
     timeSpent: 0,
     estimatedTime: 15,
     isRunning: false,
+    image: image4,
   },
   {
     id: 5,
@@ -50,6 +58,7 @@ const initialState = [
     timeSpent: 0,
     estimatedTime: 30,
     isRunning: false,
+    image: image5,
   },
 ];
 

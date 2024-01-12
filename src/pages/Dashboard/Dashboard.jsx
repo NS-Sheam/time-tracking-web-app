@@ -1,11 +1,6 @@
 import weeklyactivity from "../../assets/icons/logo-1.png";
 import thisWeekIcon from "../../assets/icons/logo-2.png";
 import projectIcon from "../../assets/icons/folder-logo.png";
-import recent1 from "../../assets/images/recent-1.jpg";
-import recent2 from "../../assets/images/recent-2.jpg";
-import recent3 from "../../assets/images/recent-3.jpg";
-import recent4 from "../../assets/images/recent-4.jpg";
-import recent5 from "../../assets/images/recent-5.jpg";
 
 import { FaEllipsisV, FaPlay, FaUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
@@ -33,13 +28,6 @@ const Dashboard = () => {
             text: projects.filter(project => project.status === "Completed").length,
             icon: projectIcon,
         }
-    ]
-    const recentActivityImages = [
-        recent1,
-        recent2,
-        recent3,
-        recent4,
-        recent5,
     ]
     const commonBoxClass = "bg-white p-6 rounded-md space-y-2 shadow-md";
     return (
@@ -90,13 +78,13 @@ const Dashboard = () => {
                     <div>
                         <div className="grid grid-cols-3 gap-3">
                             {
-                                recentActivityImages.map((item, index) => (
+                                projects.map((item, index) => (
                                     <div key={index} className="relative">
-                                        <img className="rounded-md" src={item} alt="" />
+                                        <img className="rounded-md" src={item.image} alt="" />
                                         <div className="absolute bottom-2 right-2 rounded-md p-2 z-10">
-                                            <p className="text-white font-extrabold">Project {index + 1}</p>
+                                            <p className="text-white font-bold text-sm">{item.projectName}</p>
                                         </div>
-                                        <div className="absolute h-10 w-full bottom-0 bg-black bg-opacity-35"></div>
+                                        <div className="absolute h-full w-full bottom-0 bg-black bg-opacity-35"></div>
                                     </div>
                                 ))
                             }
